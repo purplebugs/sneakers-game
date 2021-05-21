@@ -8,20 +8,18 @@ const headers = {
 const getSneakers = async (limit = 10, priced = true) => {
   const response = await fetch(`${baseURL}/sneakers?limit=${limit}`, {
     method: "GET",
-    headers: {
-      headers,
-    },
+    headers: headers,
   });
   if (response.status === 200 || response.status === 304) {
     const responseJSON = response.json();
 
-    if (priced === true) {
-      // only return sneakers with a price
+    // if (priced === true) {
+    //   // only return sneakers with a price
 
-      responseJSON.filter((sneaker) => {
-        return sneaker.retailPrice > 0;
-      });
-    }
+    //   responseJSON.filter((sneaker) => {
+    //     return sneaker.retailPrice > 0;
+    //   });
+    // }
 
     return responseJSON;
   } else {
