@@ -9,6 +9,6 @@ app.use("/", express.static("static"));
 app.listen(8080);
 
 console.log(
-  `config.get('sneakersDatabaseKey')`,
-  config.get("sneakersDatabaseKey")
+  `[APP.LOG] using sneakersDatabaseAPIKey:`,
+  config.get("sneakersDatabaseAPIKey")
 );
