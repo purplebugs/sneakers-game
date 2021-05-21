@@ -1,0 +1,27 @@
+{
+  "name": "sneakers-game",
+  "version": "1.0.0",
+  "description": "Sneakers guessing game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purplebugs/sneakers-game.git"
+  },
+  "keywords": [
+    "sneakers",
+    "shoes",
+    "game"
+  ],
+  "author": "Anita Lipsky",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/purplebugs/sneakers-game/issues"
+  },
+  "homepage": "https://github.com/purplebugs/sneakers-game#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
