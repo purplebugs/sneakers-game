@@ -15,11 +15,14 @@ const headers = {
 
 const limit = 10;
 
-app.get("/api", async (req, res) => {
-  const response = await fetch(`${baseURL}/sneakers?limit=${limit}`, {
-    method: "GET",
-    headers: headers,
-  });
+app.get("/api/:limit", async (req, res) => {
+  const response = await fetch(
+    `${baseURL}/sneakers?limit=${req.params.limit}`,
+    {
+      method: "GET",
+      headers: headers,
+    }
+  );
 
   if (response.status === 200 || response.status === 304) {
     const responseJSON = await response.json();
