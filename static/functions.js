@@ -1,15 +1,29 @@
 const baseURL = "https://the-sneaker-database.p.rapidapi.com";
 
-const getSneakers = async (limit = 10) => {
+const headers = {
+  "x-rapidapi-key": "TODO",
+  "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+};
+
+const getSneakers = async (limit = 10, priced = true) => {
   const response = await fetch(`${baseURL}/sneakers?limit=${limit}`, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "0a0dadca31mshcfc527676a5280cp104f55jsn2fd1c17cdffb",
-      "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+      headers,
     },
   });
   if (response.status === 200 || response.status === 304) {
-    return response.json();
+    const responseJSON = response.json();
+
+    if (priced === true) {
+      // only return sneakers with a price
+
+      responseJSON.filter((sneaker) => {
+        return sneaker.retailPrice > 0;
+      });
+    }
+
+    return responseJSON;
   } else {
     throw new Error("Unable to fetch data");
   }
