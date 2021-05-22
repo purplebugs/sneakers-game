@@ -19,7 +19,7 @@ const renderSneakers = (sneakers) => {
   sneakersEl.innerText = "";
 
   // render sneakers
-  console.log("[APP LOG] sneakers", sneakers);
+  //console.log("[APP LOG] sneakers", sneakers);
 
   // render only sneakers with image and price
 
