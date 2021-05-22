@@ -67,10 +67,18 @@ const renderSneaker = (sneakers) => {
 };
 
 const getNextSneaker = () => {
-  filter.currentSneakerId = filter.currentSneakerId + 1; // TODO ensure this is not greater than numberAvailableSneakers
+  console.log();
 
-  renderSneaker(filter.sneakers);
-  renderKeepingTrack(filter);
+  if (filter.currentSneakerId < filter.numberAvailableSneakers - 1) {
+    filter.currentSneakerId = filter.currentSneakerId + 1;
+
+    renderSneaker(filter.sneakers);
+    renderKeepingTrack(filter);
+  } else {
+    throw new Error(
+      "No more available sneakers // TODO app should send new request"
+    );
+  }
 };
 
 const renderKeepingTrack = (filter) => {
