@@ -30,6 +30,7 @@ const filterSneakersByImageAndPrice = (sneakers) => {
   // keep track of latest sneakers
   filter.sneakers = sneakersWithImageAndPrice;
   filter.numberAvailableSneakers = filter.sneakers.length;
+
   return sneakersWithImageAndPrice;
 };
 
@@ -63,6 +64,13 @@ const renderSneaker = (sneakers) => {
   sneakerEl.innerText = JSON.stringify(
     `sneaker.name: ${sneaker.name} - sneaker.retailPrice: ${sneaker.retailPrice} - sneaker.image.small: ${sneaker.image.small}`
   );
+};
+
+const getNextSneaker = () => {
+  filter.currentSneakerId = filter.currentSneakerId + 1; // TODO ensure this is not greater than numberAvailableSneakers
+
+  renderSneaker(filter.sneakers);
+  renderKeepingTrack(filter);
 };
 
 const renderKeepingTrack = (filter) => {
