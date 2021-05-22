@@ -7,3 +7,14 @@ const getSneakers = async (limit = 10, page = 0) => {
     throw new Error("Unable to fetch data");
   }
 };
+
+const renderSneakers = (sneakers) => {
+  const sneakersEl = document.getElementById("sneakers");
+
+  // clear any existing rendering
+  sneakersEl.innerText = "";
+
+  // render sneakers
+  console.log("[APP LOG] sneakers", sneakers);
+  sneakersEl.innerText = JSON.stringify(sneakers);
+};
