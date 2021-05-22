@@ -27,10 +27,12 @@ const filterSneakersByImageAndPrice = (sneakers) => {
     return sneakerWithPrice && sneakerWithImage;
   });
 
+  filter.sneakers = sneakersWithImageAndPrice;
   return sneakersWithImageAndPrice;
 };
 
 const renderSneakers = (sneakers) => {
+  // we only want sneakers with both an image and a price
   const sneakersWithImageAndPrice = filterSneakersByImageAndPrice(sneakers);
 
   const sneakersEl = document.getElementById("sneakers");
@@ -39,5 +41,24 @@ const renderSneakers = (sneakers) => {
   sneakersEl.innerText = "";
 
   console.log("[APP LOG] sneakersWithImageAndPrice", sneakersWithImageAndPrice);
+
+  // render
   sneakersEl.innerText = JSON.stringify(sneakersWithImageAndPrice);
+};
+
+const renderSneaker = (sneakers) => {
+  // grab first unused sneaker
+  // TODO use filter to track first unused
+  const sneaker = sneakers[filter.currentSneakerId];
+  console.log("sneaker", sneaker);
+
+  const sneakerEl = document.getElementById("sneaker");
+
+  // clear any existing rendering
+  sneakerEl.innerText = "";
+
+  // render
+  sneakerEl.innerText = JSON.stringify(
+    `sneaker.name: ${sneaker.name} - sneaker.retailPrice: ${sneaker.retailPrice} - sneaker.image.small: ${sneaker.image.small}`
+  );
 };

@@ -1,7 +1,19 @@
+const filter = {
+  page: 0,
+  limit: 100,
+  sneakers: {},
+  currentSneakerId: 0,
+};
+
 let renderPage = () => {
   getSneakers()
     .then((sneakers) => {
       renderSneakers(sneakers);
+      return sneakers;
+    })
+    .then((sneakers) => {
+      // filter.sneakers is set when renderSneakers() has successfully finished
+      renderSneaker(filter.sneakers);
       return sneakers;
     })
     .catch((err) => {
