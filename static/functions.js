@@ -1,5 +1,5 @@
-const getSneakers = async (limit = 10) => {
-  const response = await fetch(`/api/${limit}`);
+const getSneakers = async (limit = 10, page = 0) => {
+  const response = await fetch(`/api/${limit}/${page}`);
   if (response.status === 200 || response.status === 304) {
     const responseJSON = response.json();
     return responseJSON;
