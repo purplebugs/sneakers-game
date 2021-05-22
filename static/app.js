@@ -16,6 +16,9 @@ let renderPage = () => {
       renderSneaker(filter.sneakers);
       return sneakers;
     })
+    .then(() => {
+      renderKeepingTrack(filter);
+    })
     .catch((err) => {
       console.error("Error rendering page", err);
     });

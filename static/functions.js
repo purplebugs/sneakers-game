@@ -62,3 +62,15 @@ const renderSneaker = (sneakers) => {
     `sneaker.name: ${sneaker.name} - sneaker.retailPrice: ${sneaker.retailPrice} - sneaker.image.small: ${sneaker.image.small}`
   );
 };
+
+const renderKeepingTrack = (filter) => {
+  const filterEl = document.getElementById("filter");
+
+  filterEl.innerText = "";
+
+  // render
+
+  filterEl.innerText = JSON.stringify(
+    `filter.page: ${filter.page} - filter.limit: ${filter.limit} - filter.currentSneakerId: ${filter.currentSneakerId}`
+  );
+};
