@@ -12,18 +12,12 @@ const getSneakers = async (limit = 100, page = 0) => {
   }
 };
 
-const renderSneakers = (sneakers) => {
-  const sneakersEl = document.getElementById("sneakers");
-
-  // clear any existing rendering
-  sneakersEl.innerText = "";
-
-  // render sneakers
+const filterSneakersByImageAndPrice = (sneakers) => {
   //console.log("[APP LOG] sneakers", sneakers);
 
-  // render only sneakers with image and price
+  // only use sneakers with image and price
 
-  const sneakersWithPriceAndImage = sneakers.results.filter((sneaker) => {
+  const sneakersWithImageAndPrice = sneakers.results.filter((sneaker) => {
     const sneakerWithPrice = sneaker.retailPrice > 0;
     //console.log("[APP LOG] sneakerWithPrice", sneakerWithPrice);
 
@@ -33,6 +27,17 @@ const renderSneakers = (sneakers) => {
     return sneakerWithPrice && sneakerWithImage;
   });
 
-  console.log("[APP LOG] sneakersWithPriceAndImage", sneakersWithPriceAndImage);
-  sneakersEl.innerText = JSON.stringify(sneakersWithPriceAndImage);
+  return sneakersWithImageAndPrice;
+};
+
+const renderSneakers = (sneakers) => {
+  const sneakersWithImageAndPrice = filterSneakersByImageAndPrice(sneakers);
+
+  const sneakersEl = document.getElementById("sneakers");
+
+  // clear any existing rendering
+  sneakersEl.innerText = "";
+
+  console.log("[APP LOG] sneakersWithImageAndPrice", sneakersWithImageAndPrice);
+  sneakersEl.innerText = JSON.stringify(sneakersWithImageAndPrice);
 };
