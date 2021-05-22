@@ -1,8 +1,9 @@
 const filter = {
   page: 0,
   limit: 100,
-  sneakers: {},
   currentSneakerId: 0,
+  sneakers: {},
+  numberAvailableSneakers: 0,
 };
 
 let renderPage = () => {

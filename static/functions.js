@@ -27,7 +27,9 @@ const filterSneakersByImageAndPrice = (sneakers) => {
     return sneakerWithPrice && sneakerWithImage;
   });
 
+  // keep track of latest sneakers
   filter.sneakers = sneakersWithImageAndPrice;
+  filter.numberAvailableSneakers = filter.sneakers.length;
   return sneakersWithImageAndPrice;
 };
 
@@ -71,6 +73,6 @@ const renderKeepingTrack = (filter) => {
   // render
 
   filterEl.innerText = JSON.stringify(
-    `filter.page: ${filter.page} - filter.limit: ${filter.limit} - filter.currentSneakerId: ${filter.currentSneakerId}`
+    `filter.page: ${filter.page} - filter.limit: ${filter.limit} - filter.currentSneakerId: ${filter.currentSneakerId} - filter.numberAvailableSneakers: ${filter.numberAvailableSneakers}`
   );
 };
