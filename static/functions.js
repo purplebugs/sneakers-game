@@ -1,4 +1,4 @@
-const getSneakers = async (limit = 50, page = 0) => {
+const getSneakers = async (limit = tracker.limit, page = 0) => {
   const response = await fetch(`/api/${limit}/${page}`);
   if (response.status === 200 || response.status === 304) {
     const responseJSON = response.json();
@@ -89,6 +89,6 @@ const renderKeepingTrack = (tracker) => {
   // render
 
   filterEl.innerText = JSON.stringify(
-    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerId: ${tracker.currentSneakerId} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers}`
+    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerId: ${tracker.currentSneakerId} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.gameMin: ${tracker.gameMin} - tracker.gameMax: ${tracker.gameMax}`
   );
 };
