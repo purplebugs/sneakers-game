@@ -1,24 +1,26 @@
-const filter = {
+const tracker = {
   page: 0,
   limit: 100,
   currentSneakerId: 0,
   sneakers: {},
   numberAvailableSneakers: 0,
+  gameMin: 1,
+  gameMax: 20,
 };
 
 let renderPage = () => {
   getSneakers()
     .then((sneakers) => {
-      renderSneakers(sneakers);
+      loadSneakers(sneakers);
       return sneakers;
     })
     .then((sneakers) => {
-      // filter.sneakers is set when renderSneakers() has successfully finished
-      renderSneaker(filter.sneakers);
+      // tracker.sneakers is set when loadSneakers() has successfully finished
+      renderSneaker(tracker.sneakers);
       return sneakers;
     })
     .then(() => {
-      renderKeepingTrack(filter);
+      renderKeepingTrack(tracker);
     })
     .catch((err) => {
       console.error("Error rendering page", err);

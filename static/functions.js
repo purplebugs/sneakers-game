@@ -1,4 +1,4 @@
-const getSneakers = async (limit = 100, page = 0) => {
+const getSneakers = async (limit = 50, page = 0) => {
   const response = await fetch(`/api/${limit}/${page}`);
   if (response.status === 200 || response.status === 304) {
     const responseJSON = response.json();
@@ -28,13 +28,13 @@ const filterSneakersByImageAndPrice = (sneakers) => {
   });
 
   // keep track of latest sneakers
-  filter.sneakers = sneakersWithImageAndPrice;
-  filter.numberAvailableSneakers = filter.sneakers.length;
+  tracker.sneakers = sneakersWithImageAndPrice;
+  tracker.numberAvailableSneakers = tracker.sneakers.length;
 
   return sneakersWithImageAndPrice;
 };
 
-const renderSneakers = (sneakers) => {
+const loadSneakers = (sneakers) => {
   // we only want sneakers with both an image and a price
   const sneakersWithImageAndPrice = filterSneakersByImageAndPrice(sneakers);
 
@@ -51,8 +51,8 @@ const renderSneakers = (sneakers) => {
 
 const renderSneaker = (sneakers) => {
   // grab first unused sneaker
-  // TODO use filter to track first unused
-  const sneaker = sneakers[filter.currentSneakerId];
+  // TODO use tracker to track first unused
+  const sneaker = sneakers[tracker.currentSneakerId];
   console.log("sneaker", sneaker);
 
   const sneakerEl = document.getElementById("sneaker");
@@ -69,11 +69,11 @@ const renderSneaker = (sneakers) => {
 const getNextSneaker = () => {
   console.log();
 
-  if (filter.currentSneakerId < filter.numberAvailableSneakers - 1) {
-    filter.currentSneakerId = filter.currentSneakerId + 1;
+  if (tracker.currentSneakerId < tracker.numberAvailableSneakers - 1) {
+    tracker.currentSneakerId = tracker.currentSneakerId + 1;
 
-    renderSneaker(filter.sneakers);
-    renderKeepingTrack(filter);
+    renderSneaker(tracker.sneakers);
+    renderKeepingTrack(tracker);
   } else {
     throw new Error(
       "No more available sneakers // TODO app should send new request"
@@ -81,14 +81,14 @@ const getNextSneaker = () => {
   }
 };
 
-const renderKeepingTrack = (filter) => {
-  const filterEl = document.getElementById("filter");
+const renderKeepingTrack = (tracker) => {
+  const filterEl = document.getElementById("tracker");
 
   filterEl.innerText = "";
 
   // render
 
   filterEl.innerText = JSON.stringify(
-    `filter.page: ${filter.page} - filter.limit: ${filter.limit} - filter.currentSneakerId: ${filter.currentSneakerId} - filter.numberAvailableSneakers: ${filter.numberAvailableSneakers}`
+    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerId: ${tracker.currentSneakerId} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers}`
   );
 };
