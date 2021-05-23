@@ -4,3 +4,4 @@ config/local.json
 .DS_Store
 
 
+data/sneakersFromDatabase.json
