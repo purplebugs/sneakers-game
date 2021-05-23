@@ -29,10 +29,23 @@ const getSneakersFromDatabase = async () => {
   if (response.status === 200 || response.status === 304) {
     const responseJSON = await response.json();
 
-    // TODO filter only use sneakers with image and price
+    // only use sneakers with image and price
+
+    const sneakersWithImageAndPriceJSON = responseJSON.results.filter(
+      (sneaker) => {
+        const sneakerWithPrice = sneaker.retailPrice > 0;
+        //console.log("[APP LOG] sneakerWithPrice", sneakerWithPrice);
+
+        const sneakerWithImage = sneaker.image.small !== "";
+        //console.log("[APP LOG] sneakerWithImage", sneakerWithImage);
+
+        return sneakerWithPrice && sneakerWithImage;
+      }
+    );
+
     fs.writeFileSync(
       "./data/sneakersFromDatabase.json",
-      JSON.stringify(responseJSON, null, 2)
+      JSON.stringify(sneakersWithImageAndPriceJSON, null, 2)
     );
   } else {
     throw new Error("Unable to fetch data");

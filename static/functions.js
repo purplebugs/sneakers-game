@@ -12,41 +12,20 @@ const getSneakers = async (limit = tracker.limit, page = 0) => {
   }
 };
 
-const filterSneakersByImageAndPrice = (sneakers) => {
-  //console.log("[APP LOG] sneakers", sneakers);
-
-  // only use sneakers with image and price
-
-  const sneakersWithImageAndPrice = sneakers.results.filter((sneaker) => {
-    const sneakerWithPrice = sneaker.retailPrice > 0;
-    //console.log("[APP LOG] sneakerWithPrice", sneakerWithPrice);
-
-    const sneakerWithImage = sneaker.image.small !== "";
-    //console.log("[APP LOG] sneakerWithImage", sneakerWithImage);
-
-    return sneakerWithPrice && sneakerWithImage;
-  });
-
-  // keep track of latest sneakers
-  tracker.sneakers = sneakersWithImageAndPrice;
-  tracker.numberAvailableSneakers = tracker.sneakers.length;
-
-  return sneakersWithImageAndPrice;
-};
-
 const loadSneakers = (sneakers) => {
-  // we only want sneakers with both an image and a price
-  const sneakersWithImageAndPrice = filterSneakersByImageAndPrice(sneakers);
+  // keep track of latest sneakers
+  tracker.sneakers = sneakers;
+  tracker.numberAvailableSneakers = tracker.sneakers.length;
 
   const sneakersEl = document.getElementById("sneakers");
 
   // clear any existing rendering
   sneakersEl.innerText = "";
 
-  console.log("[APP LOG] sneakersWithImageAndPrice", sneakersWithImageAndPrice);
+  console.log("[APP LOG] sneakers", sneakers);
 
   // render
-  sneakersEl.innerText = JSON.stringify(sneakersWithImageAndPrice);
+  sneakersEl.innerText = JSON.stringify(sneakers);
 };
 
 const renderSneaker = (sneakers) => {
