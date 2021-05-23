@@ -16,6 +16,11 @@ const getSneakersFromDatabase = async () => {
   // respond with limit and page of sneakers when a GET request is made to /api/:limit/:page
   // send in /api/100/0 to return first 100 sneakers
 
+  console.log(
+    `[APP.LOG] using sneakersDatabaseAPIKey:`,
+    config.get("sneakersDatabaseAPIKey")
+  );
+
   const response = await fetch(`${baseURL}/sneakers?limit=100&page=0`, {
     method: "GET",
     headers: headers,

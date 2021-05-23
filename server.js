@@ -1,5 +1,9 @@
 const express = require("express");
 const fetch = require("node-fetch");
+const fs = require("fs");
+
+// load shoe data - see Readme to generate this data if this is the first time running the app
+const data = JSON.parse(fs.readFileSync("./data/sneakersFromDatabase.json"));
 
 // create an express app
 const app = express();
@@ -11,33 +15,14 @@ app.get("/api", function (req, res) {
   );
 });
 
-// TODO by default read the data from utils/download-shoes.js
-
 // respond with limit and page of sneakers when a GET request is made to /api/:limit/:page
-// send in /api/10/0 to return first 10 sneakers
+// eg: send in /api/10/0 to return first 10 sneakers
 app.get("/api/:limit/:page", async (req, res) => {
-  const response = await fetch(
-    `${baseURL}/sneakers?limit=${req.params.limit}&page=${req.params.page}`,
-    {
-      method: "GET",
-      headers: headers,
-    }
-  );
-
-  if (response.status === 200 || response.status === 304) {
-    const responseJSON = await response.json();
-
-    res.send(JSON.stringify(responseJSON));
-  } else {
-    throw new Error("Unable to fetch data");
-  }
+  // TODO add logic for pagination
+  // const response = data.filter ...
+  res.send(JSON.stringify(data));
 });
 
 app.use("/", express.static("static"));
 
 app.listen(8080);
-
-console.log(
-  `[APP.LOG] using sneakersDatabaseAPIKey:`,
-  config.get("sneakersDatabaseAPIKey")
-);
