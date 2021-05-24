@@ -4,7 +4,8 @@
   "description": "Sneakers guessing game",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "load-data": "node ./utils/download-shoes.js"
   },
   "repository": {
     "type": "git",

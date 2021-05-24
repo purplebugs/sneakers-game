@@ -5,6 +5,8 @@ const fs = require("fs");
 // load shoe data - see Readme to generate this data if this is the first time running the app
 const data = JSON.parse(fs.readFileSync("./data/sneakersFromDatabase.json"));
 
+const hasData = Array.isArray(data) && data.length > 0;
+
 // create an express app
 const app = express();
 
@@ -18,6 +20,12 @@ app.get("/api", function (req, res) {
 // respond with limit and page of sneakers when a GET request is made to /api/:limit/:page
 // eg: send in /api/10/0 to return first 10 sneakers
 app.get("/api/:limit/:page", async (req, res) => {
+  if (!hasData) {
+    throw new Error(
+      "No data - see Readme to generate this data if this is the first time running the app"
+    );
+    return;
+  }
   // TODO add logic for pagination
   // const response = data.filter ...
   res.send(JSON.stringify(data));

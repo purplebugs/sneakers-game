@@ -10,11 +10,9 @@ Personal exercise to make small game around sneakers data from The Sneaker Datab
 
 ## First time before starting app
 
-If this is the first time using the app, populate data by running [./utils/download-shoes.js](./utils/download-shoes.js)
+If this is the first time using the app, populate data by running:
 
-TODO clean this up!!
-
-`node utils/download-shoes.js`
+`npm run load-data`
 
 ## Start app
 
