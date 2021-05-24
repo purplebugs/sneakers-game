@@ -9,7 +9,7 @@ const tracker = {
 };
 
 let renderPage = () => {
-  getSneakers()
+  getSneakers(20, 0)
     .then((sneakers) => {
       loadSneakers(sneakers);
       return sneakers;

@@ -1,6 +1,8 @@
 const fetch = require("node-fetch");
 const config = require("../config.js");
 const fs = require("fs");
+const limit = 100;
+const page = 0;
 
 // get key
 const baseURL = "https://the-sneaker-database.p.rapidapi.com";
@@ -21,10 +23,13 @@ const getSneakersFromDatabase = async () => {
     config.get("sneakersDatabaseAPIKey")
   );
 
-  const response = await fetch(`${baseURL}/sneakers?limit=100&page=0`, {
-    method: "GET",
-    headers: headers,
-  });
+  const response = await fetch(
+    `${baseURL}/sneakers?limit=${limit}&page=${page}`,
+    {
+      method: "GET",
+      headers: headers,
+    }
+  );
 
   if (response.status === 200 || response.status === 304) {
     const responseJSON = await response.json();

@@ -1,4 +1,4 @@
-const getSneakers = async (limit = tracker.limit, page = 0) => {
+const getSneakers = async (limit = tracker.limit, page = tracker.page) => {
   const response = await fetch(`/api/${limit}/${page}`);
   if (response.status === 200 || response.status === 304) {
     const responseJSON = response.json();

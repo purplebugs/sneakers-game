@@ -26,9 +26,16 @@ app.get("/api/:limit/:page", async (req, res) => {
     );
     return;
   }
-  // TODO add logic for pagination
-  // const response = data.filter ...
-  res.send(JSON.stringify(data));
+
+  const limit = req.params.limit; // how many to return
+  const page = req.params.page; // from which page to start
+  const start = page !== 0 ? page * limit : 0; // calculation of which index to start from
+  const end = parseInt(start) + parseInt(limit);
+
+  // TODO verify enough data before slice
+  const dataSelected = data.slice(start, end);
+
+  res.send(JSON.stringify(dataSelected));
 });
 
 app.use("/", express.static("static"));
