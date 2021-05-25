@@ -3,9 +3,6 @@ const getSneakers = async (limit = tracker.limit, page = tracker.page) => {
   if (response.status === 200 || response.status === 304) {
     const responseJSON = response.json();
 
-    // store in session storage for later use to avoid calling API again
-    sessionStorage.setItem("sneakersStorage", JSON.stringify(responseJSON));
-
     return responseJSON;
   } else {
     throw new Error("Unable to fetch data");
