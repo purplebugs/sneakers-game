@@ -17,15 +17,7 @@ const loadSneakers = (sneakers) => {
   tracker.sneakers = sneakers;
   tracker.numberAvailableSneakers = tracker.sneakers.length;
 
-  const sneakersEl = document.getElementById("sneakers");
-
-  // clear any existing rendering
-  sneakersEl.innerText = "";
-
   console.log("[APP LOG] sneakers", sneakers);
-
-  // render
-  sneakersEl.innerText = JSON.stringify(sneakers);
 };
 
 const renderSneaker = (sneakers) => {
