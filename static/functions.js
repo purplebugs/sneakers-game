@@ -54,6 +54,7 @@ const moreExpensive = (selected) => {
   const result = `${sneakerA_retailPrice} is higher than ${sneakerB_retailPrice}`;
 
   // TODO add result if they are equal
+  // TODO compare on server side using POST /api/compare
   if (
     (selectedA && sneakerA_is_moreExpensive) ||
     (selectedB && sneakerB_is_moreExpensive)

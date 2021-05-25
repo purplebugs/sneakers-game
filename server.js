@@ -5,6 +5,16 @@ const fs = require("fs");
 // load shoe data - see Readme to generate this data if this is the first time running the app
 const data = JSON.parse(fs.readFileSync("./data/sneakersFromDatabase.json"));
 
+const mappedData = new Map();
+data.forEach((sneaker) => {
+  mappedData.set(sneaker.id, sneaker);
+});
+
+console.log(
+  "mappedData.get('7021d9e7-afca-4564-8438-bac1f7b22c99')",
+  mappedData.get("7021d9e7-afca-4564-8438-bac1f7b22c99")
+);
+
 const hasData = Array.isArray(data) && data.length > 0;
 
 // create an express app
@@ -35,6 +45,10 @@ app.get("/api/:limit/:page", async (req, res) => {
 
   res.send(JSON.stringify(dataSelected));
 });
+
+// TODO compare two ids by retailPrice
+// POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
+// returns JSON with {highest: id, lowest: id, equal: boolean}
 
 app.use("/", express.static("static"));
 
