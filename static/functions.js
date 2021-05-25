@@ -23,7 +23,7 @@ const loadSneakers = (sneakers) => {
 const renderSneaker = (sneakers) => {
   // grab first unused sneaker
   // TODO use tracker to track first unused
-  const sneaker = sneakers[tracker.currentSneakerId];
+  const sneaker = sneakers[tracker.currentSneakerIndex];
   console.log("sneaker", sneaker);
 
   const sneakerEl = document.getElementById("sneaker");
@@ -39,9 +39,9 @@ const renderSneaker = (sneakers) => {
 
 const getNextSneaker = () => {
   const noMoreAvailableSneakers =
-    tracker.currentSneakerId === tracker.numberAvailableSneakers - 1;
+    tracker.currentSneakerIndex === tracker.numberAvailableSneakers - 1;
 
-  const gameMaxReached = tracker.currentSneakerId === tracker.gameMax - 1;
+  const gameMaxReached = tracker.currentSneakerIndex === tracker.gameMax - 1;
 
   if (noMoreAvailableSneakers || gameMaxReached) {
     // TODO remove button and print Game Over instead, with option to restart game
@@ -51,7 +51,7 @@ const getNextSneaker = () => {
     //   "No more available sneakers // TODO app should send new request"
     // );
   } else {
-    tracker.currentSneakerId = tracker.currentSneakerId + 1;
+    tracker.currentSneakerIndex = tracker.currentSneakerIndex + 1;
 
     renderSneaker(tracker.sneakers);
     renderKeepingTrack(tracker);
@@ -66,6 +66,6 @@ const renderKeepingTrack = (tracker) => {
   // render
 
   filterEl.innerText = JSON.stringify(
-    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerId: ${tracker.currentSneakerId} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.gameMin: ${tracker.gameMin} - tracker.gameMax: ${tracker.gameMax}`
+    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerIndex: ${tracker.currentSneakerIndex} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.gameMin: ${tracker.gameMin} - tracker.gameMax: ${tracker.gameMax}`
   );
 };

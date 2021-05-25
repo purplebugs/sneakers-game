@@ -1,7 +1,8 @@
 const tracker = {
   page: 0,
   limit: 100,
-  currentSneakerId: 0,
+  currentSneakerIndex: 0,
+  currentSneakerIds: [],
   sneakers: {},
   numberAvailableSneakers: 0,
   gameMin: 1,
