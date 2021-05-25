@@ -23,16 +23,19 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   const sneakerB = sneakers[tracker.currentSneakerB_Index];
   console.log("sneakerB", sneakerB);
 
-  const sneakerEl = document.getElementById("sneakersForPriceComparison");
+  const sneakerA_El = document.getElementById("sneakerA");
+  const sneakerB_El = document.getElementById("sneakerB");
 
   // clear any existing rendering
-  sneakerEl.innerText = "";
+  sneakerA_El.innerText = "";
+  sneakerB_El.innerText = "";
 
   const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice} - sneakerA.image.small: ${sneakerA.image.small}`;
   const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice} - sneakerB.image.small: ${sneakerB.image.small}`;
 
   // render
-  sneakerEl.innerText = JSON.stringify(sneakerA_String + sneakerB_String);
+  sneakerA_El.innerText = JSON.stringify(sneakerA_String);
+  sneakerB_El.innerText = JSON.stringify(sneakerB_String);
 };
 
 const getNextSneaker = () => {
