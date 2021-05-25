@@ -46,17 +46,23 @@ const renderSneaker = (sneakers) => {
 };
 
 const getNextSneaker = () => {
-  console.log();
+  const noMoreAvailableSneakers =
+    tracker.currentSneakerId === tracker.numberAvailableSneakers - 1;
 
-  if (tracker.currentSneakerId < tracker.numberAvailableSneakers - 1) {
+  const gameMaxReached = tracker.currentSneakerId === tracker.gameMax - 1;
+
+  if (noMoreAvailableSneakers || gameMaxReached) {
+    // TODO remove button and print Game Over instead, with option to restart game
+    document.getElementById("getNextSneaker").innerText = "Game Over";
+
+    // throw new Error(
+    //   "No more available sneakers // TODO app should send new request"
+    // );
+  } else {
     tracker.currentSneakerId = tracker.currentSneakerId + 1;
 
     renderSneaker(tracker.sneakers);
     renderKeepingTrack(tracker);
-  } else {
-    throw new Error(
-      "No more available sneakers // TODO app should send new request"
-    );
   }
 };
 

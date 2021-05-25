@@ -5,11 +5,11 @@ const tracker = {
   sneakers: {},
   numberAvailableSneakers: 0,
   gameMin: 1,
-  gameMax: 20,
+  gameMax: 5,
 };
 
 let renderPage = () => {
-  getSneakers(20, 0)
+  getSneakers(tracker.limit, tracker.page)
     .then((sneakers) => {
       loadSneakers(sneakers);
       return sneakers;
