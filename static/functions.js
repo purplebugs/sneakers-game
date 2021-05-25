@@ -17,40 +17,48 @@ const loadSneakers = (sneakers) => {
   console.log("[APP LOG] sneakers", sneakers);
 };
 
-const renderSneaker = (sneakers) => {
-  // grab first unused sneaker
-  // TODO use tracker to track first unused
-  const sneaker = sneakers[tracker.currentSneakerIndex];
-  console.log("sneaker", sneaker);
+const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
+  const sneakerA = sneakers[tracker.currentSneakerA_Index];
+  console.log("sneakerA", sneakerA);
+  const sneakerB = sneakers[tracker.currentSneakerB_Index];
+  console.log("sneakerB", sneakerB);
 
-  const sneakerEl = document.getElementById("sneaker");
+  const sneakerEl = document.getElementById("sneakersForPriceComparison");
 
   // clear any existing rendering
   sneakerEl.innerText = "";
 
+  const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice} - sneakerA.image.small: ${sneakerA.image.small}`;
+  const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice} - sneakerB.image.small: ${sneakerB.image.small}`;
+
   // render
-  sneakerEl.innerText = JSON.stringify(
-    `sneaker.name: ${sneaker.name} - sneaker.retailPrice: ${sneaker.retailPrice} - sneaker.image.small: ${sneaker.image.small}`
-  );
+  sneakerEl.innerText = JSON.stringify(sneakerA_String + sneakerB_String);
 };
 
 const getNextSneaker = () => {
   const noMoreAvailableSneakers =
-    tracker.currentSneakerIndex === tracker.numberAvailableSneakers - 1;
+    tracker.currentSneakerB_Index === tracker.numberAvailableSneakers - 1;
 
-  const gameMaxReached = tracker.currentSneakerIndex === tracker.gameMax - 1;
+  const gameMaxReached = tracker.currentGame === tracker.gameMax;
+
+  console.log("noMoreAvailableSneakers", noMoreAvailableSneakers);
+  console.log("gameMaxReached", gameMaxReached);
 
   if (noMoreAvailableSneakers || gameMaxReached) {
     // TODO remove button and print Game Over instead, with option to restart game
-    document.getElementById("getNextSneaker").innerText = "Game Over";
+    document.getElementById("getNextSneaker").innerText =
+      "Game Over - Reload page to start again";
 
     // throw new Error(
     //   "No more available sneakers // TODO app should send new request"
     // );
   } else {
-    tracker.currentSneakerIndex = tracker.currentSneakerIndex + 1;
+    // update tracking, get next sneaker and render
+    tracker.currentGame = tracker.currentGame + 1;
+    tracker.currentSneakerA_Index = tracker.currentSneakerA_Index + 1;
+    tracker.currentSneakerB_Index = tracker.currentSneakerB_Index + 1;
 
-    renderSneaker(tracker.sneakers);
+    renderSneakers_A_and_B_forPriceComparison(tracker.sneakers);
     renderKeepingTrack(tracker);
   }
 };
@@ -63,6 +71,6 @@ const renderKeepingTrack = (tracker) => {
   // render
 
   filterEl.innerText = JSON.stringify(
-    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerIndex: ${tracker.currentSneakerIndex} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.gameMin: ${tracker.gameMin} - tracker.gameMax: ${tracker.gameMax}`
+    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerA_Index: ${tracker.currentSneakerA_Index} - tracker.currentSneakerB_Index: ${tracker.currentSneakerB_Index} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.currentGame: ${tracker.currentGame} - tracker.gameMax: ${tracker.gameMax}`
   );
 };

@@ -1,11 +1,11 @@
 const tracker = {
   page: 0,
   limit: 100,
-  currentSneakerIndex: 0,
-  currentSneakerIds: [],
+  currentSneakerA_Index: 0,
+  currentSneakerB_Index: 1,
   sneakers: {},
   numberAvailableSneakers: 0,
-  gameMin: 1,
+  currentGame: 1,
   gameMax: 5,
 };
 
@@ -17,7 +17,7 @@ let renderPage = () => {
     })
     .then((sneakers) => {
       // tracker.sneakers is set when loadSneakers() has successfully finished
-      renderSneaker(tracker.sneakers);
+      renderSneakers_A_and_B_forPriceComparison(tracker.sneakers);
       return sneakers;
     })
     .then(() => {
