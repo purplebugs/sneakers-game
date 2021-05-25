@@ -41,9 +41,6 @@ const getNextSneaker = () => {
 
   const gameMaxReached = tracker.currentGame === tracker.gameMax;
 
-  console.log("noMoreAvailableSneakers", noMoreAvailableSneakers);
-  console.log("gameMaxReached", gameMaxReached);
-
   if (noMoreAvailableSneakers || gameMaxReached) {
     // TODO remove button and print Game Over instead, with option to restart game
     document.getElementById("getNextSneaker").innerText =
