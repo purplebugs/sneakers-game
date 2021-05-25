@@ -30,12 +30,38 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   sneakerA_El.innerText = "";
   sneakerB_El.innerText = "";
 
+  // render
   const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice} - sneakerA.image.small: ${sneakerA.image.small}`;
   const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice} - sneakerB.image.small: ${sneakerB.image.small}`;
 
-  // render
   sneakerA_El.innerText = JSON.stringify(sneakerA_String);
   sneakerB_El.innerText = JSON.stringify(sneakerB_String);
+};
+
+const moreExpensive = (selected) => {
+  const selectedA = selected === "A";
+  const selectedB = selected === "B";
+
+  const sneakerA_retailPrice =
+    tracker.sneakers[tracker.currentSneakerA_Index].retailPrice;
+
+  const sneakerB_retailPrice =
+    tracker.sneakers[tracker.currentSneakerB_Index].retailPrice;
+
+  const sneakerA_is_moreExpensive = sneakerA_retailPrice > sneakerB_retailPrice;
+  const sneakerB_is_moreExpensive = sneakerA_retailPrice < sneakerB_retailPrice;
+
+  const result = `${sneakerA_retailPrice} is higher than ${sneakerB_retailPrice}`;
+
+  // TODO add result if they are equal
+  if (
+    (selectedA && sneakerA_is_moreExpensive) ||
+    (selectedB && sneakerB_is_moreExpensive)
+  ) {
+    console.log(`Correct! ${result}`);
+  } else {
+    console.log(`Incorrect! ${result}`);
+  }
 };
 
 const getNextSneaker = () => {
