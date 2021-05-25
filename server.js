@@ -24,7 +24,6 @@ app.get("/api/:limit/:page", async (req, res) => {
     throw new Error(
       "No data - see Readme to generate this data if this is the first time running the app"
     );
-    return;
   }
 
   const limit = req.params.limit; // how many to return
@@ -32,7 +31,6 @@ app.get("/api/:limit/:page", async (req, res) => {
   const start = page !== 0 ? page * limit : 0; // calculation of which index to start from
   const end = parseInt(start) + parseInt(limit);
 
-  // TODO verify enough data before slice
   const dataSelected = data.slice(start, end);
 
   res.send(JSON.stringify(dataSelected));
