@@ -1,6 +1,7 @@
 const express = require("express");
 const fetch = require("node-fetch");
 const fs = require("fs");
+const utils = require("./src/utils.js");
 
 // load shoe data - see Readme to generate this data if this is the first time running the app
 const data = JSON.parse(fs.readFileSync("./data/sneakersFromDatabase.json"));
@@ -46,9 +47,10 @@ app.get("/api/:limit/:page", async (req, res) => {
   res.send(JSON.stringify(dataSelected));
 });
 
-// TODO compare two ids by retailPrice
 // POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
-// returns JSON with {highest: id, lowest: id, equal: boolean}
+app.get("/api/compare/", function (req, res) {
+  res.send(JSON.stringify(utils.compare("sdf", "abc", "sdf")));
+});
 
 app.use("/", express.static("static"));
 
