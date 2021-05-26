@@ -49,6 +49,7 @@ app.get("/api/:limit/:page", async (req, res) => {
 
 // POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
 app.get("/api/compare/", function (req, res) {
+  // TODO convert to POST, fish out params in body to send to utils.compare()
   res.send(JSON.stringify(utils.compare("sdf", "abc", "sdf")));
 });
 
