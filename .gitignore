@@ -5,3 +5,4 @@ config/local.json
 
 
 data/sneakersFromDatabase.json
+.nyc_output/

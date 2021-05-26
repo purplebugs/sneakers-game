@@ -19,3 +19,7 @@ If this is the first time using the app, populate data by running:
 1. Start the app: `npm start`
 
 2. Navigate to [http://localhost:8080/](http://localhost:8080/)
+
+## Run tests
+
+`npm test`

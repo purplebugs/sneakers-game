@@ -4,7 +4,7 @@
   "description": "Sneakers guessing game",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tap ./tests",
     "load-data": "node ./utils/download-shoes.js"
   },
   "repository": {
@@ -26,5 +26,8 @@
     "convict": "^6.1.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "tap": "^15.0.9"
   }
 }
