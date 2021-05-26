@@ -53,15 +53,25 @@ app.get("/api/:limit/:page", async (req, res) => {
 
 // POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
 app.post("/api/compare/", jsonParser, function (req, res) {
-  // TODO fish out params in body to send to utils.compare()
-  console.log("req.body.sneakerA", req.body.sneakerA);
-  res.send(JSON.stringify(utils.compare("sdf", "abc", "sdf")));
-});
+  // Example request body
+  // {
+  //     "sneakerA": "1deddc2f-eb10-4a58-b0c6-5880e68e084d",
+  //     "sneakerB": "098a95ad-6b19-4e95-8955-d1fa7d4a087f",
+  //     "userSelected": "1deddc2f-eb10-4a58-b0c6-5880e68e084d"
+  // }
 
-// POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
-// TODO deprecate this and use POST instead
-app.get("/api/compare/", function (req, res) {
-  res.send(JSON.stringify(utils.compare("sdf", "abc", "sdf")));
+  // fish out values in body to send to utils.compare()
+  const sneakerA_id = req.body.sneakerA;
+  const sneakerB_id = req.body.sneakerB;
+  const userSelected_id = req.body.userSelected;
+
+  // look up corresponding sneaker objects to send in response
+  const sneakerA = mappedData.get(sneakerA_id);
+  const sneakerB = mappedData.get(sneakerB_id);
+  const userSelected = mappedData.get(userSelected_id);
+
+  // TODO troubleshoot issue
+  res.send(JSON.stringify(utils.compare(sneakerA, sneakerB, userSelected)));
 });
 
 app.use("/", express.static("static"));
