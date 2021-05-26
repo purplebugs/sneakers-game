@@ -18,10 +18,15 @@ const loadSneakers = (sneakers) => {
 };
 
 const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
+  // get sneaker objects
   const sneakerA = sneakers[tracker.currentSneakerA_Index];
-  console.log("sneakerA", sneakerA);
   const sneakerB = sneakers[tracker.currentSneakerB_Index];
+  console.log("sneakerA", sneakerA);
   console.log("sneakerB", sneakerB);
+
+  // keep track of current rendered sneaker ids
+  tracker.currentSneakerA_Id = sneakers[tracker.currentSneakerA_Index].id;
+  tracker.currentSneakerB_Id = sneakers[tracker.currentSneakerB_Index].id;
 
   const sneakerA_El = document.getElementById("sneakerA");
   const sneakerB_El = document.getElementById("sneakerB");
@@ -97,7 +102,9 @@ const renderKeepingTrack = (tracker) => {
 
   // render
 
+  const sneakerIds = `tracker.currentSneakerA_Id: ${tracker.currentSneakerA_Id} - tracker.currentSneakerB_Id: ${tracker.currentSneakerB_Id}`;
+
   filterEl.innerText = JSON.stringify(
-    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerA_Index: ${tracker.currentSneakerA_Index} - tracker.currentSneakerB_Index: ${tracker.currentSneakerB_Index} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.currentGame: ${tracker.currentGame} - tracker.gameMax: ${tracker.gameMax}`
+    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerA_Index: ${tracker.currentSneakerA_Index} - tracker.currentSneakerB_Index: ${tracker.currentSneakerB_Index} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.currentGame: ${tracker.currentGame} - tracker.gameMax: ${tracker.gameMax} - ${sneakerIds}`
   );
 };

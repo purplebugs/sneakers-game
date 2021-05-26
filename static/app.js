@@ -3,6 +3,8 @@ const tracker = {
   limit: 100,
   currentSneakerA_Index: 0,
   currentSneakerB_Index: 1,
+  currentSneakerA_Id: "",
+  currentSneakerB_Id: "",
   sneakers: {},
   numberAvailableSneakers: 0,
   currentGame: 1,
