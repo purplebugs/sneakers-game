@@ -4,8 +4,10 @@ module.exports.hello = () => {
 
 // TODO compare two ids by retailPrice
 module.exports.compare = (sneakerA, sneakerB, userSelected_id) => {
-  // TODO do not hardcode this value, proof of concept only
-  // TODO implement comparison logic that returns JSON with {highest: id, lowest: id, equal: boolean}
+  // returns JSON with {highest: sneaker, lowest: sneaker, equal: boolean}
+
+  // console.log("sneakerA", sneakerA);
+  // console.log("sneakerB", sneakerB);
 
   const equal = sneakerA.retailPrice === sneakerB.retailPrice;
   let highest = {};
