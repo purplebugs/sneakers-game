@@ -3,7 +3,7 @@ module.exports.hello = () => {
   return "hello";
 };
 
-// compare two ids by retailPrice and return what is expected by
+// compare two ids by retailPrice, return { "highest": sneaker, "lowest": sneaker, "equal": boolean}
 module.exports.compare = (sneakerA, sneakerB, userSelected_id) => {
   // returns JSON with {highest: sneaker, lowest: sneaker, equal: boolean}
 
