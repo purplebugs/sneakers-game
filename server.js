@@ -70,8 +70,8 @@ app.post("/api/compare/", jsonParser, function (req, res) {
   const sneakerB = mappedData.get(sneakerB_id);
   const userSelected = mappedData.get(userSelected_id);
 
-  // TODO troubleshoot issue
-  res.send(JSON.stringify(utils.compare(sneakerA, sneakerB, userSelected)));
+  // compare prices and send response
+  res.send(utils.compare(sneakerA, sneakerB, userSelected_id));
 });
 
 app.use("/", express.static("static"));
