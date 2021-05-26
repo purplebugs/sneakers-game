@@ -1,8 +1,9 @@
+// proof of concept function for proof of concept test
 module.exports.hello = () => {
   return "hello";
 };
 
-// TODO compare two ids by retailPrice
+// compare two ids by retailPrice and return what is expected by
 module.exports.compare = (sneakerA, sneakerB, userSelected_id) => {
   // returns JSON with {highest: sneaker, lowest: sneaker, equal: boolean}
 

@@ -59,13 +59,15 @@ sneakerB = {
   },
 };
 
+// proof of concept test
 tap.test("hello() returns string 'hello'", (t) => {
   t.equal(utils.hello(), "hello");
   t.end();
 });
 
+// compare() function tests
 tap.test(
-  "compare(sneakerA, sneakerB, userSelectedSneaker) - sneakerA.retailPrice > sneakerB.retailPrice - returns higher: sneakerA, lower: sneakerB, equal false",
+  "compare(sneakerA, sneakerB) - sneakerA.retailPrice > sneakerB.retailPrice - returns higher: sneakerA, lower: sneakerB, equal false",
   (t) => {
     t.same(
       utils.compare(sneakerA, sneakerB, "1deddc2f-eb10-4a58-b0c6-5880e68e084d"),
@@ -80,7 +82,7 @@ tap.test(
 );
 
 tap.test(
-  "compare(sneakerA, sneakerA, userSelectedSneaker) - equal priced - returns sneakers as sent, equal true",
+  "compare(sneakerA, sneakerA) - equal priced - returns sneakers as sent, equal true",
   (t) => {
     t.same(
       utils.compare(sneakerA, sneakerA, "1deddc2f-eb10-4a58-b0c6-5880e68e084d"),
