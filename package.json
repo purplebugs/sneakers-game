@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/purplebugs/sneakers-game#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "convict": "^6.1.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"

@@ -2,6 +2,7 @@ const express = require("express");
 const fetch = require("node-fetch");
 const fs = require("fs");
 const utils = require("./src/utils.js");
+const bodyParser = require("body-parser");
 
 // load shoe data - see Readme to generate this data if this is the first time running the app
 const data = JSON.parse(fs.readFileSync("./data/sneakersFromDatabase.json"));
@@ -17,6 +18,9 @@ console.log(
 );
 
 const hasData = Array.isArray(data) && data.length > 0;
+
+// create application/json parser
+const jsonParser = bodyParser.json();
 
 // create an express app
 const app = express();
@@ -48,8 +52,15 @@ app.get("/api/:limit/:page", async (req, res) => {
 });
 
 // POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
+app.post("/api/compare/", jsonParser, function (req, res) {
+  // TODO fish out params in body to send to utils.compare()
+  console.log("req.body.sneakerA", req.body.sneakerA);
+  res.send(JSON.stringify(utils.compare("sdf", "abc", "sdf")));
+});
+
+// POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
+// TODO deprecate this and use POST instead
 app.get("/api/compare/", function (req, res) {
-  // TODO convert to POST, fish out params in body to send to utils.compare()
   res.send(JSON.stringify(utils.compare("sdf", "abc", "sdf")));
 });
 
