@@ -20,8 +20,6 @@ const getRandomSneakers = async (howMany = 1) => {
   }
 };
 
-// TODO instead of loadSneaker(sneakers) load two random sneakers using /api/newShoe/2
-
 const loadSneakers = (sneakers) => {
   // keep track of latest sneakers
   tracker.sneakers = sneakers;
