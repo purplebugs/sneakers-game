@@ -35,27 +35,19 @@ app.get("/api", function (req, res) {
 // pick random shoe
 app.get("/api/newShoe/:howMany", async (req, res) => {
   const numberOfShoes = data.length;
-  console.log("numberOfShoes", numberOfShoes);
-
   const howMany =
     req.params.howMany !== undefined ? req.params.howMany : (howMany = 1);
 
-  console.log("howMany", howMany);
   // returns a random integer from 0 to numberOfShoes-1
   const randomShoeIndex = Math.floor(Math.random() * numberOfShoes);
 
-  console.log("randomShoeIndex", randomShoeIndex);
+  const dataSelected = data.slice(
+    randomShoeIndex,
+    parseInt(randomShoeIndex) + parseInt(howMany)
+  );
 
-  const randomShoe = {
-    id: data[randomShoeIndex].id,
-    name: data[randomShoeIndex].name,
-    image: data[randomShoeIndex].image.small,
-  };
-
-  // TODO return array depending on :howMany
-
-  //const dataSelected = data.slice(0, 1);
-  res.send(JSON.stringify(randomShoe));
+  // TODO return only id, name, image
+  res.send(JSON.stringify(dataSelected));
 });
 
 // respond with limit and page of sneakers when a GET request is made to /api/:limit/:page
