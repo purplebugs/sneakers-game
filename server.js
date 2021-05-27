@@ -51,27 +51,22 @@ app.get("/api/:limit/:page", async (req, res) => {
   res.send(JSON.stringify(dataSelected));
 });
 
-// POST /api/compare {sneakerA: id, sneakerB: id, userSelected: id}
+// POST /api/compare {idA: id, idB: id, selected: id}
 app.post("/api/compare/", jsonParser, function (req, res) {
   // Example request body
   // {
-  //     "sneakerA": "1deddc2f-eb10-4a58-b0c6-5880e68e084d",
-  //     "sneakerB": "098a95ad-6b19-4e95-8955-d1fa7d4a087f",
-  //     "userSelected": "1deddc2f-eb10-4a58-b0c6-5880e68e084d"
+  //     "idA": "1deddc2f-eb10-4a58-b0c6-5880e68e084d",
+  //     "idB": "098a95ad-6b19-4e95-8955-d1fa7d4a087f",
+  //     "selected": "1deddc2f-eb10-4a58-b0c6-5880e68e084d"
   // }
 
-  // fish out values in body to send to utils.compare()
-  const sneakerA_id = req.body.sneakerA;
-  const sneakerB_id = req.body.sneakerB;
-  const userSelected_id = req.body.userSelected;
-
-  // look up corresponding sneaker objects to send in response
-  const sneakerA = mappedData.get(sneakerA_id);
-  const sneakerB = mappedData.get(sneakerB_id);
-  const userSelected = mappedData.get(userSelected_id);
+  // fish out values in body and send sneaker object to utils.compare()
+  const sneakerA = mappedData.get(req.body.idA);
+  const sneakerB = mappedData.get(req.body.idB);
+  const selected = mappedData.get(req.body.selected);
 
   // compare prices and send response
-  res.send(utils.compare(sneakerA, sneakerB, userSelected_id));
+  res.send(JSON.stringify(utils.compare(sneakerA, sneakerB, selected)));
 });
 
 app.use("/", express.static("static"));

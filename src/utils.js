@@ -4,15 +4,13 @@ module.exports.hello = () => {
 };
 
 // compare two ids by retailPrice, return { "highest": sneaker, "lowest": sneaker, "equal": boolean}
-module.exports.compare = (sneakerA, sneakerB, userSelected_id) => {
+module.exports.compare = (sneakerA = {}, sneakerB = {}, selected = false) => {
   // returns JSON with {highest: sneaker, lowest: sneaker, equal: boolean}
 
   // console.log("sneakerA", sneakerA);
   // console.log("sneakerB", sneakerB);
 
   const equal = sneakerA.retailPrice === sneakerB.retailPrice;
-  let highest = {};
-  let lowest = {};
 
   if (equal) {
     highest = sneakerA;
@@ -27,5 +25,5 @@ module.exports.compare = (sneakerA, sneakerB, userSelected_id) => {
     equal: equal,
   };
 
-  return JSON.stringify(returnObject);
+  return returnObject;
 };
