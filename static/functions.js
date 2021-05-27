@@ -25,7 +25,6 @@ const getRandomSneakers = async (howMany = 1) => {
 const loadSneakers = (sneakers) => {
   // keep track of latest sneakers
   tracker.sneakers = sneakers;
-  tracker.numberAvailableSneakers = tracker.sneakers.length;
 
   console.log("[APP LOG] sneakers", sneakers);
 };
@@ -112,6 +111,6 @@ const renderKeepingTrack = (tracker) => {
   const sneakerIds = `tracker.currentSneakerA_Id: ${tracker.currentSneakerA_Id} - tracker.currentSneakerB_Id: ${tracker.currentSneakerB_Id}`;
 
   filterEl.innerText = JSON.stringify(
-    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerA_Index: ${tracker.currentSneakerA_Index} - tracker.currentSneakerB_Index: ${tracker.currentSneakerB_Index} - tracker.numberAvailableSneakers: ${tracker.numberAvailableSneakers} - tracker.currentGame: ${tracker.currentGame} - tracker.gameMax: ${tracker.gameMax} - ${sneakerIds}`
+    `tracker.page: ${tracker.page} - tracker.limit: ${tracker.limit} - tracker.currentSneakerA_Index: ${tracker.currentSneakerA_Index} - tracker.currentSneakerB_Index: ${tracker.currentSneakerB_Index} - tracker.currentGame: ${tracker.currentGame} - tracker.gameMax: ${tracker.gameMax} - ${sneakerIds}`
   );
 };

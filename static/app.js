@@ -6,7 +6,6 @@ const tracker = {
   currentSneakerA_Id: "",
   currentSneakerB_Id: "",
   sneakers: {},
-  numberAvailableSneakers: 0,
   currentGame: 1,
   gameMax: 5,
 };
