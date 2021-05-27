@@ -14,6 +14,7 @@ const tracker = {
 let renderPage = () => {
   getSneakers(tracker.limit, tracker.page)
     .then((sneakers) => {
+      // TODO instead of loadSneaker(sneakers) load two random sneakers using /api/newShoe/2
       loadSneakers(sneakers);
       return sneakers;
     })

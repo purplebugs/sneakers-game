@@ -28,8 +28,34 @@ const app = express();
 // respond with friendly message when a GET request is made to the homepage
 app.get("/api", function (req, res) {
   res.send(
-    "👟 Welcome to The Sneakers Guessing Game API. Created using https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/the-sneaker-database"
+    `👟 Welcome to The Sneakers Guessing Game API. Created using https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/the-sneaker-database`
   );
+});
+
+// pick random shoe
+app.get("/api/newShoe/:howMany", async (req, res) => {
+  const numberOfShoes = data.length;
+  console.log("numberOfShoes", numberOfShoes);
+
+  const howMany =
+    req.params.howMany !== undefined ? req.params.howMany : (howMany = 1);
+
+  console.log("howMany", howMany);
+  // returns a random integer from 0 to numberOfShoes-1
+  const randomShoeIndex = Math.floor(Math.random() * numberOfShoes);
+
+  console.log("randomShoeIndex", randomShoeIndex);
+
+  const randomShoe = {
+    id: data[randomShoeIndex].id,
+    name: data[randomShoeIndex].name,
+    image: data[randomShoeIndex].image.small,
+  };
+
+  // TODO return array depending on :howMany
+
+  //const dataSelected = data.slice(0, 1);
+  res.send(JSON.stringify(randomShoe));
 });
 
 // respond with limit and page of sneakers when a GET request is made to /api/:limit/:page
