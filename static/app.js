@@ -12,14 +12,16 @@ const tracker = {
 
 let renderPage = () => {
   //  getSneakers(tracker.limit, tracker.page) // use this if want to preload with fixed page of sneakers instead of random
-  getRandomSneakers(2)
+  getRandomSneakers(2) // randomly get two sneakers randomly in the dataset
     .then((sneakers) => {
-      loadSneakers(sneakers);
+      // keep track of latest sneakers
+      tracker.sneakers = sneakers;
+      console.log("[APP LOG] sneakers", sneakers);
+
       return sneakers;
     })
     .then((sneakers) => {
-      // tracker.sneakers is set when loadSneakers() has successfully finished
-      renderSneakers_A_and_B_forPriceComparison(tracker.sneakers);
+      renderSneakers_A_and_B_forPriceComparison(sneakers);
       return sneakers;
     })
     .then(() => {

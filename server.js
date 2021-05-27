@@ -32,6 +32,7 @@ app.get("/api", function (req, res) {
   );
 });
 
+// eg: send in /api/randomShoes/2 to return 2 random shoes as an array
 app.get("/api/randomShoes/:howMany", async (req, res) => {
   const numberOfShoes = data.length;
   const howMany =
@@ -50,7 +51,7 @@ app.get("/api/randomShoes/:howMany", async (req, res) => {
 });
 
 // respond with limit and page of sneakers when a GET request is made to /api/:limit/:page
-// eg: send in /api/10/0 to return first 10 sneakers
+// eg: send in /api/10/0 to return first 10 sneakers as an array
 app.get("/api/:limit/:page", async (req, res) => {
   if (!hasData) {
     throw new Error(

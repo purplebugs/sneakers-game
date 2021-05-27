@@ -20,13 +20,6 @@ const getRandomSneakers = async (howMany = 1) => {
   }
 };
 
-const loadSneakers = (sneakers) => {
-  // keep track of latest sneakers
-  tracker.sneakers = sneakers;
-
-  console.log("[APP LOG] sneakers", sneakers);
-};
-
 const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   // get sneaker objects
   const sneakerA = sneakers[tracker.currentSneakerA_Index];
