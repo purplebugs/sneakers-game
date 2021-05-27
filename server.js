@@ -32,8 +32,7 @@ app.get("/api", function (req, res) {
   );
 });
 
-// pick random shoe
-app.get("/api/newShoe/:howMany", async (req, res) => {
+app.get("/api/randomShoes/:howMany", async (req, res) => {
   const numberOfShoes = data.length;
   const howMany =
     req.params.howMany !== undefined ? req.params.howMany : (howMany = 1);

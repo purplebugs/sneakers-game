@@ -12,9 +12,9 @@ const tracker = {
 };
 
 let renderPage = () => {
-  getSneakers(tracker.limit, tracker.page)
+  //  getSneakers(tracker.limit, tracker.page) // use this if want to preload with fixed page of sneakers instead of random
+  getRandomSneakers(2)
     .then((sneakers) => {
-      // TODO instead of loadSneaker(sneakers) load two random sneakers using /api/newShoe/2
       loadSneakers(sneakers);
       return sneakers;
     })

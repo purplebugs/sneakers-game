@@ -9,6 +9,19 @@ const getSneakers = async (limit = tracker.limit, page = tracker.page) => {
   }
 };
 
+const getRandomSneakers = async (howMany = 1) => {
+  const response = await fetch(`/api/randomShoes/${howMany}`);
+  if (response.status === 200 || response.status === 304) {
+    const responseJSON = response.json();
+
+    return responseJSON;
+  } else {
+    throw new Error("Unable to fetch data");
+  }
+};
+
+// TODO instead of loadSneaker(sneakers) load two random sneakers using /api/newShoe/2
+
 const loadSneakers = (sneakers) => {
   // keep track of latest sneakers
   tracker.sneakers = sneakers;
@@ -70,28 +83,22 @@ const moreExpensive = (selected) => {
   }
 };
 
-const getNextSneaker = () => {
-  const noMoreAvailableSneakers =
-    tracker.currentSneakerB_Index === tracker.numberAvailableSneakers - 1;
-
+const getAnotherSneaker = () => {
   const gameMaxReached = tracker.currentGame === tracker.gameMax;
 
-  if (noMoreAvailableSneakers || gameMaxReached) {
+  if (gameMaxReached) {
     // TODO remove button and print Game Over instead, with option to restart game
-    document.getElementById("getNextSneaker").innerText =
+    document.getElementById("getAnotherSneaker").innerText =
       "Game Over - Reload page to start again";
-
-    // throw new Error(
-    //   "No more available sneakers // TODO app should send new request"
-    // );
   } else {
     // update tracking, get next sneaker and render
     tracker.currentGame = tracker.currentGame + 1;
-    tracker.currentSneakerA_Index = tracker.currentSneakerA_Index + 1;
-    tracker.currentSneakerB_Index = tracker.currentSneakerB_Index + 1;
 
-    renderSneakers_A_and_B_forPriceComparison(tracker.sneakers);
-    renderKeepingTrack(tracker);
+    getRandomSneakers(2).then((sneakers) => {
+      console.log("sneakers", sneakers);
+      renderSneakers_A_and_B_forPriceComparison(sneakers);
+      renderKeepingTrack(tracker);
+    });
   }
 };
 
