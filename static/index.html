@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>👟 The Sneakers Guessing Game</title>
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="functions.js"></script>
     <script defer src="app.js"></script>
   </head>
@@ -9,19 +10,16 @@
     <header class="header"><h1>The Sneakers Guessing Game 👟</h1></header>
     <main>
       <div class="container">
-        <h2>Keeping track:</h2>
         <span id="tracker"></span>
-        <hr />
-        <h2>Which sneaker is more expensive?</h2>
-        <span
-          ><button id="getAnotherSneaker" onClick="getAnotherSneaker()">
+        <div>
+          <h2>Which sneaker is more expensive?</h2>
+          <button id="getAnotherSneaker" onClick="getAnotherSneaker()">
             Get two more sneakers
-          </button></span
-        >
+          </button>
+        </div>
         <div id="sneakersForPriceComparison">
-          <span class="renderedSneaker" id="sneakerA"> </span>
-          <hr />
-          <span class="renderedSneaker" id="sneakerB"></span>
+          <div class="sneaker" id="sneakerA"></div>
+          <div class="sneaker" id="sneakerB"></div>
         </div>
       </div>
     </main>
