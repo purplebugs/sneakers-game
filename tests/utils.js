@@ -66,6 +66,7 @@ tap.test("hello() returns string 'hello'", (t) => {
 });
 
 // compare() function tests
+// TODO test selected parameter
 tap.test(
   "compare() - sneakerA.retailPrice is higher than sneakerB.retailPrice",
   (t) => {
@@ -77,6 +78,22 @@ tap.test(
         equal: false,
       },
       "sneakerA.retailPrice should be the highest"
+    );
+    t.end();
+  }
+);
+
+tap.test(
+  "compare() - sneakerA.retailPrice is lower than sneakerB.retailPrice",
+  (t) => {
+    t.same(
+      utils.compare(sneakerB, sneakerA, "1deddc2f-eb10-4a58-b0c6-5880e68e084d"),
+      {
+        highest: sneakerA,
+        lowest: sneakerB,
+        equal: false,
+      },
+      "sneakerB.retailPrice should be the lowest"
     );
     t.end();
   }
