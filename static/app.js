@@ -1,8 +1,6 @@
 const tracker = {
   page: 0,
   limit: 100,
-  currentSneakerA_Index: 0,
-  currentSneakerB_Index: 1,
   currentSneakerA_Id: "",
   currentSneakerB_Id: "",
   sneakers: {},
