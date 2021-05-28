@@ -72,34 +72,18 @@ const selectSneaker = (selected) => {
     tracker.currentSneakerB_Id,
     selected
   ).then((response) => {
-    // TODO
     console.log("response", response);
+
+    const correct = response.highest.id === selected;
+    const result = `You selected: ${selected} - Highest: ${response.highest.id} - Lowest: ${response.lowest.id} - Equal: ${response.equal}`;
+
+    // TODO send results to webpage
+    if (correct) {
+      console.log(`Correct! ${result}`);
+    } else {
+      console.log(`Almost! ${result}`);
+    }
   });
-};
-
-const moreExpensive = (selected) => {
-  const selectedA = selected === "A";
-  const selectedB = selected === "B";
-
-  const sneakerA_retailPrice = tracker.sneakers[0].retailPrice;
-
-  const sneakerB_retailPrice = tracker.sneakers[1].retailPrice;
-
-  const sneakerA_is_moreExpensive = sneakerA_retailPrice > sneakerB_retailPrice;
-  const sneakerB_is_moreExpensive = sneakerA_retailPrice < sneakerB_retailPrice;
-
-  const result = `sneakerA_retailPrice:${sneakerA_retailPrice} - sneakerB_retailPrice:${sneakerB_retailPrice}`;
-
-  // TODO add result if they are equal
-  // TODO compare on server side using POST /api/compare
-  if (
-    (selectedA && sneakerA_is_moreExpensive) ||
-    (selectedB && sneakerB_is_moreExpensive)
-  ) {
-    console.log(`Correct! ${result}`);
-  } else {
-    console.log(`Incorrect! ${result}`);
-  }
 };
 
 const getAnotherSneaker = () => {
