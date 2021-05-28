@@ -23,6 +23,9 @@ const getRandomSneakers = async (howMany = 1) => {
 const compareSneakers = async (idA, idB, selected) => {
   const response = await fetch("/api/compare/", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ idA: idA, idB: idB, selected: selected }),
   });
 
