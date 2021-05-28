@@ -4,7 +4,7 @@ module.exports.hello = () => {
 };
 
 // compare two ids by retailPrice, return { "highest": sneaker, "lowest": sneaker, "equal": boolean}
-module.exports.compare = (sneakerA = {}, sneakerB = {}, selected = false) => {
+module.exports.compare = (sneakerA = {}, sneakerB = {}, selected = {}) => {
   // returns JSON with {highest: sneaker, lowest: sneaker, equal: boolean}
 
   // console.log("sneakerA", sneakerA);
