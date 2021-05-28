@@ -20,6 +20,24 @@ const getRandomSneakers = async (howMany = 1) => {
   }
 };
 
+const compareSneakers = async (idA, idB, selected) => {
+  const response = await fetch(`/api/compare`);
+  // TODO pass in post body
+
+  // {
+  //     "idA": "1deddc2f-eb10-4a58-b0c6-5880e68e084d",
+  //     "idB": "098a95ad-6b19-4e95-8955-d1fa7d4a087f",
+  //     "selected": "1deddc2f-eb10-4a58-b0c6-5880e68e084d"
+  // }
+  if (response.status === 200 || response.status === 304) {
+    const responseJSON = response.json();
+
+    return responseJSON;
+  } else {
+    throw new Error("Unable to fetch data");
+  }
+};
+
 const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   // get the sneakers
   const sneakerA = sneakers[0];
@@ -45,6 +63,13 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
 
   sneakerA_El.innerText = JSON.stringify(sneakerA_String);
   sneakerB_El.innerText = JSON.stringify(sneakerB_String);
+};
+
+const selectSneaker = (selected) => {
+  console.log("selected", selected);
+  // TODO
+  // compareSneakers(currentSneakerA_Id, currentSneakerB_Id, selected)
+  // etc
 };
 
 const moreExpensive = (selected) => {

@@ -31,3 +31,10 @@ let renderPage = () => {
 };
 
 renderPage();
+
+// .getElementsByClassName("renderedSneaker") // this does not console.log dataAttribute ?
+document.getElementById("sneakerA").addEventListener("click", function (e) {
+  const sneakerId = e.target.getAttribute("data-id");
+  //console.log("sneakerId", sneakerId);
+  selectSneaker(sneakerId);
+});
