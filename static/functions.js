@@ -57,11 +57,19 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   sneakerA_El.setAttribute("data-id", tracker.currentSneakerA_Id);
   sneakerB_El.setAttribute("data-id", tracker.currentSneakerB_Id);
 
-  const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice} - sneakerA.image.small: ${sneakerA.image.small}`;
-  const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice} - sneakerB.image.small: ${sneakerB.image.small}`;
+  const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice}`;
+  const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice}`;
 
   sneakerA_El.innerText = JSON.stringify(sneakerA_String);
   sneakerB_El.innerText = JSON.stringify(sneakerB_String);
+
+  const sneakerA_Img = document.createElement("img");
+  sneakerA_Img.setAttribute("src", sneakerA.image.thumbnail);
+  sneakerA_El.appendChild(sneakerA_Img);
+
+  const sneakerB_Img = document.createElement("img");
+  sneakerB_Img.setAttribute("src", sneakerB.image.thumbnail);
+  sneakerB_El.appendChild(sneakerB_Img);
 };
 
 const selectSneaker = (selected) => {
@@ -95,10 +103,14 @@ const getAnotherSneaker = () => {
       "Game Over - Reload page to start again";
   } else {
     // update tracking, get next sneaker and render
+
     tracker.currentGame = tracker.currentGame + 1;
 
     getRandomSneakers(2).then((sneakers) => {
       console.log("sneakers", sneakers);
+      // keep track of current rendered sneaker ids
+      tracker.currentSneakerA_Id = sneakers[0].id;
+      tracker.currentSneakerB_Id = sneakers[1].id;
       renderSneakers_A_and_B_forPriceComparison(sneakers);
       renderKeepingTrack(tracker);
     });
