@@ -52,7 +52,7 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   const sneakerA_El = document.getElementById("sneakerA");
   const sneakerB_El = document.getElementById("sneakerB");
 
-  // render
+  // render text
 
   sneakerA_El.setAttribute("data-id", tracker.currentSneakerA_Id);
   sneakerB_El.setAttribute("data-id", tracker.currentSneakerB_Id);
@@ -63,12 +63,16 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   sneakerA_El.innerText = JSON.stringify(sneakerA_String);
   sneakerB_El.innerText = JSON.stringify(sneakerB_String);
 
+  // render image
   const sneakerA_Img = document.createElement("img");
   sneakerA_Img.setAttribute("src", sneakerA.image.thumbnail);
-  sneakerA_El.appendChild(sneakerA_Img);
+  sneakerA_Img.setAttribute("data-id", tracker.currentSneakerA_Id);
 
   const sneakerB_Img = document.createElement("img");
   sneakerB_Img.setAttribute("src", sneakerB.image.thumbnail);
+  sneakerB_Img.setAttribute("data-id", tracker.currentSneakerB_Id);
+
+  sneakerA_El.appendChild(sneakerA_Img);
   sneakerB_El.appendChild(sneakerB_Img);
 };
 
