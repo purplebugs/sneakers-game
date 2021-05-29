@@ -31,8 +31,19 @@ p {
   margin-bottom: 0.8rem;
 }
 
-.shoe {
+.sneaker {
   margin-bottom: 4.8rem;
+  border-color: #2b292e;
+  border-width: 10px;
+  border-style: solid;
+}
+
+.correct {
+  border-color: green;
+}
+
+.incorrect {
+  border-color: orange;
 }
 
 button {

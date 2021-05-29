@@ -52,6 +52,13 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   const sneakerA_El = document.getElementById("sneakerA");
   const sneakerB_El = document.getElementById("sneakerB");
 
+  // remove any existing correct/incorrect class info
+  sneakerA_El.classList.remove("correct");
+  sneakerA_El.classList.remove("incorrect");
+
+  sneakerB_El.classList.remove("correct");
+  sneakerB_El.classList.remove("incorrect");
+
   // render text
 
   sneakerA_El.setAttribute("data-id", tracker.currentSneakerA_Id);
@@ -86,15 +93,18 @@ const selectSneaker = (selected) => {
   ).then((response) => {
     console.log("response", response);
 
-    const correct = response.highest.id === selected;
-    const result = `You selected: ${selected} - Highest: ${response.highest.id} - Lowest: ${response.lowest.id} - Equal: ${response.equal}`;
+    // TODO take into account equal
 
-    // TODO send results to webpage
-    if (correct) {
-      console.log(`Correct! ${result}`);
-    } else {
-      console.log(`Almost! ${result}`);
-    }
+    const highestShoeElement = document.querySelectorAll(
+      `[data-id="${response.highest.id}"]`
+    );
+    highestShoeElement[0].classList.add("correct");
+
+    const lowestShoeElement = document.querySelectorAll(
+      `[data-id="${response.lowest.id}"]`
+    );
+
+    lowestShoeElement[0].classList.add("incorrect");
   });
 };
 
