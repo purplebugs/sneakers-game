@@ -105,6 +105,8 @@ const selectSneaker = (selected) => {
     );
 
     lowestShoeElement[0].classList.add("incorrect");
+
+    setTimeout(getAnotherSneaker, 3000);
   });
 };
 

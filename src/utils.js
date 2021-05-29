@@ -4,7 +4,7 @@ module.exports.hello = () => {
 };
 
 // compare two ids by retailPrice, return { "highest": sneaker, "lowest": sneaker, "equal": boolean}
-module.exports.compare = (sneakerA = {}, sneakerB = {}, selected = {}) => {
+module.exports.compare = (sneakerA = {}, sneakerB = {}) => {
   // returns JSON with {highest: sneaker, lowest: sneaker, equal: boolean}
 
   // console.log("sneakerA", sneakerA);
@@ -27,3 +27,5 @@ module.exports.compare = (sneakerA = {}, sneakerB = {}, selected = {}) => {
 
   return returnObject;
 };
+
+// TODO extract random API logic to here then write a test for it

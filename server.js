@@ -81,10 +81,9 @@ app.post("/api/compare/", jsonParser, function (req, res) {
   // fish out values in body and send sneaker object to utils.compare()
   const sneakerA = mappedData.get(req.body.idA);
   const sneakerB = mappedData.get(req.body.idB);
-  const selected = mappedData.get(req.body.selected);
 
   // compare prices and send response
-  res.send(JSON.stringify(utils.compare(sneakerA, sneakerB, selected)));
+  res.send(JSON.stringify(utils.compare(sneakerA, sneakerB)));
 });
 
 app.use("/", express.static("static"));
