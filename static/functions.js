@@ -60,8 +60,8 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice}`;
   const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice}`;
 
-  sneakerA_El.innerText = JSON.stringify(sneakerA_String);
-  sneakerB_El.innerText = JSON.stringify(sneakerB_String);
+  sneakerA_El.innerText = sneakerA_String;
+  sneakerB_El.innerText = sneakerB_String;
 
   // render image
   const sneakerA_Img = document.createElement("img");
