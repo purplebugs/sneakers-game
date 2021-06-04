@@ -9,21 +9,19 @@ html {
 }
 
 body {
-  background: #2b292e;
+  background: darkgoldenrod;
   color: #fafafa;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   min-height: 100vh;
 }
 
-span {
-  border-bottom: 1px solid #534f59;
-  display: inline-block;
-  font-size: 2rem;
-  height: 2.4rem;
-  line-height: 2.4rem;
-  margin: 0 0.1rem;
-  width: 2.4rem;
+.header {
+  background-color: #534f59;
+}
+.container {
+  border: 3px solid black;
+  display: flex;
 }
 
 p {
@@ -36,6 +34,7 @@ p {
   border-color: #2b292e;
   border-width: 10px;
   border-style: solid;
+  background: #2b292e;
 }
 
 .correct {

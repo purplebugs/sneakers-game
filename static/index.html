@@ -7,21 +7,27 @@
     <script defer src="app.js"></script>
   </head>
   <body>
-    <header class="header"><h1>The Sneakers Guessing Game 👟</h1></header>
-    <main>
-      <div class="container">
-        <div>
-          <h2>Which sneaker is more expensive?</h2>
-          <button id="getAnotherSneaker" onClick="getAnotherSneaker()">
-            Get two more sneakers
-          </button>
-        </div>
-        <div id="sneakersForPriceComparison">
-          <div class="sneaker" id="sneakerA"></div>
-          <div class="sneaker" id="sneakerB"></div>
-        </div>
-        <div id="tracker"></div>
+    <header class="header">
+      <h1>The Sneakers Guessing Game 👟</h1>
+      <div>
+        <h2>Which sneaker is more expensive?</h2>
+        <button id="getAnotherSneaker" onClick="getAnotherSneaker()">
+          Get two more sneakers
+        </button>
       </div>
+    </header>
+    <main>
+      <section>
+        <div class="container">
+          <div id="sneakersForPriceComparison">
+            <div class="sneaker" id="sneakerA"></div>
+            <div class="sneaker" id="sneakerB"></div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="tracker"></div>
+      </section>
     </main>
     <footer></footer>
   </body>
