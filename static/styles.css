@@ -19,7 +19,8 @@ body {
 .header {
   background-color: #534f59;
 }
-.container {
+
+.sneakersForPriceComparison {
   border: 3px solid black;
   display: flex;
 }
@@ -31,7 +32,7 @@ p {
 
 .sneaker {
   margin-bottom: 4.8rem;
-  border-color: #2b292e;
+  border-color: whitesmoke;
   border-width: 10px;
   border-style: solid;
   background: #2b292e;
