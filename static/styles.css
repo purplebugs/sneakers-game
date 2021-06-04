@@ -16,18 +16,54 @@ body {
   min-height: 100vh;
 }
 
+p {
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+}
+
 .header {
   background-color: #534f59;
 }
 
-.sneakersForPriceComparison {
+.container {
   border: 3px solid black;
   display: flex;
+  flex-wrap: wrap;
 }
 
-p {
-  font-weight: 300;
-  margin-bottom: 0.8rem;
+.box {
+  height: 10rem;
+  width: 10rem;
+}
+
+.box1 {
+  background-color: yellow;
+}
+
+.box2 {
+  background-color: purple;
+}
+
+.box3 {
+  background-color: orange;
+}
+
+.box4 {
+  background-color: hotpink;
+}
+
+.box5 {
+  background-color: royalblue;
+}
+
+.box6 {
+  background-color: olivedrab;
+}
+
+#sneakersForPriceComparison {
+  border: 3px solid black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sneaker {
