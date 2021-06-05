@@ -29,11 +29,13 @@ p {
   border: 3px solid black;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .box {
   height: 10rem;
   width: 10rem;
+  flex: 1 1 20rem;
 }
 
 .box1 {
@@ -64,6 +66,9 @@ p {
   border: 3px solid black;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70%;
 }
 
 .sneaker {
