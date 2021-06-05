@@ -1,3 +1,5 @@
+/* General */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,10 +23,68 @@ p {
   margin-bottom: 0.8rem;
 }
 
+/* Navigation */
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  padding: 2rem;
+  background: lightblue;
+  min-height: 10vh;
+}
+
 .header {
   background-color: #534f59;
 }
 
+button {
+  background: #7044a0;
+  border: none;
+  border-bottom: 2px solid #603a88;
+  cursor: pointer;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 300;
+  padding: 0.8rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background: #5f3a87;
+}
+
+/* Sneakers */
+
+#sneakersForPriceComparison {
+  border: 3px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70%;
+}
+
+.sneaker {
+  margin-bottom: 4.8rem;
+  border-color: whitesmoke;
+  border-width: 10px;
+  border-style: solid;
+  background: #2b292e;
+}
+
+.correct {
+  border-color: green;
+}
+
+.incorrect {
+  border-color: orange;
+}
+
+/* Trying stuff out from the course */
 .container {
   border: 3px solid black;
   display: flex;
@@ -60,45 +120,4 @@ p {
 
 .box6 {
   background-color: olivedrab;
-}
-
-#sneakersForPriceComparison {
-  border: 3px solid black;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 70%;
-}
-
-.sneaker {
-  margin-bottom: 4.8rem;
-  border-color: whitesmoke;
-  border-width: 10px;
-  border-style: solid;
-  background: #2b292e;
-}
-
-.correct {
-  border-color: green;
-}
-
-.incorrect {
-  border-color: orange;
-}
-
-button {
-  background: #7044a0;
-  border: none;
-  border-bottom: 2px solid #603a88;
-  cursor: pointer;
-  color: white;
-  font-size: 1.4rem;
-  font-weight: 300;
-  padding: 0.8rem;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-button:hover {
-  background: #5f3a87;
 }
