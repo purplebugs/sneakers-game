@@ -64,11 +64,14 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   sneakerA_El.setAttribute("data-id", tracker.currentSneakerA_Id);
   sneakerB_El.setAttribute("data-id", tracker.currentSneakerB_Id);
 
-  const sneakerA_String = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice}`;
-  const sneakerB_String = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice}`;
+  const sneakerA_TextElement = document.createElement("span");
+  const sneakerB_TextElement = document.createElement("span");
 
-  sneakerA_El.innerText = sneakerA_String;
-  sneakerB_El.innerText = sneakerB_String;
+  sneakerA_El.appendChild(sneakerA_TextElement);
+  sneakerB_El.appendChild(sneakerB_TextElement);
+
+  sneakerA_TextElement.innerText = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice}`;
+  sneakerB_TextElement.innerText = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice}`;
 
   // render image
   const sneakerA_Img = document.createElement("img");
