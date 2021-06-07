@@ -93,6 +93,10 @@ button:hover {
   margin: 1rem;
 }
 
+.sneaker img {
+  width: 100%;
+}
+
 .correct {
   border-color: green;
 }
