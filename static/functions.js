@@ -52,6 +52,10 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   const sneakerA_El = document.getElementById("sneakerA");
   const sneakerB_El = document.getElementById("sneakerB");
 
+  // clear any existing rendering
+  sneakerA_El.innerText = "";
+  sneakerB_El.innerText = "";
+
   // remove any existing correct/incorrect class info
   sneakerA_El.classList.remove("correct");
   sneakerA_El.classList.remove("incorrect");
