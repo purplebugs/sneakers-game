@@ -77,8 +77,8 @@ button:hover {
 
 .sneaker {
   margin: 1rem 1rem;
-  border-color: whitesmoke;
-  border-width: 10px;
+  border-color: cornflowerblue;
+  border-width: 30px;
   border-style: solid;
   background: #2b292e;
   display: flex;
