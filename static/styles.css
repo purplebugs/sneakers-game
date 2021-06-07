@@ -49,6 +49,7 @@ nav ul {
 
 button {
   background: #7044a0;
+  padding: 1rem 2rem;
   border: none;
   border-bottom: 2px solid #603a88;
   cursor: pointer;
@@ -66,7 +67,7 @@ button:hover {
 /* Sneakers */
 
 #sneakersForPriceComparison {
-  min-height: 80vh;
+  min-height: 70vh;
   border: 3px solid black;
   display: flex;
   flex-wrap: wrap;
@@ -83,7 +84,13 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: ;
+  justify-content: space-evenly;
+  flex: 1 1 20rem;
+}
+
+.sneaker span {
+  text-align: center;
+  margin: 1rem;
 }
 
 .correct {
