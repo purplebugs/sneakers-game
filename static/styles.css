@@ -32,13 +32,19 @@ a {
 
 nav ul {
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   background: lightblue;
   min-height: 10vh;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .header {
   background-color: #534f59;
+}
+
+.controls {
+  min-height: 10vh;
 }
 
 button {
@@ -60,20 +66,24 @@ button:hover {
 /* Sneakers */
 
 #sneakersForPriceComparison {
+  min-height: 80vh;
   border: 3px solid black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   align-items: center;
-  height: 70%;
+  justify-content: space-evenly;
 }
 
 .sneaker {
-  margin-bottom: 4.8rem;
+  margin: 1rem 1rem;
   border-color: whitesmoke;
   border-width: 10px;
   border-style: solid;
   background: #2b292e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: ;
 }
 
 .correct {
