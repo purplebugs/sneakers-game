@@ -74,8 +74,8 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   sneakerA_El.appendChild(sneakerA_TextElement);
   sneakerB_El.appendChild(sneakerB_TextElement);
 
-  sneakerA_TextElement.innerText = `sneakerA.name: ${sneakerA.name} - sneakerA.retailPrice: ${sneakerA.retailPrice}`;
-  sneakerB_TextElement.innerText = `sneakerB.name: ${sneakerB.name} - sneakerB.retailPrice: ${sneakerB.retailPrice}`;
+  sneakerA_TextElement.innerText = `${sneakerA.name} - $${sneakerA.retailPrice}`;
+  sneakerB_TextElement.innerText = `${sneakerB.name} - $${sneakerB.retailPrice}`;
 
   // render image
   const sneakerA_Img = document.createElement("img");
