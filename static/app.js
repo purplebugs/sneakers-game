@@ -5,7 +5,7 @@ const tracker = {
   currentSneakerB_Id: "",
   sneakers: {},
   currentGame: 1,
-  gameMax: 5,
+  gameMax: 10,
 };
 
 let renderPage = () => {
