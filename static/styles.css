@@ -87,7 +87,7 @@ button:hover {
 .sneaker {
   margin: 1rem 1rem;
   border-color: cornflowerblue;
-  border-width: 30px;
+  border-width: 2rem;
   border-style: solid;
   background: #2b292e;
   display: flex;
@@ -97,6 +97,7 @@ button:hover {
   align-items: center;
   vertical-align: middle;
   flex: 1 1 20rem;
+  border-radius: 25%;
 }
 
 .sneaker span {
@@ -118,42 +119,4 @@ button:hover {
 
 .incorrect {
   border-color: orange;
-}
-
-/* Trying stuff out from the course */
-.container {
-  border: 3px solid black;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.box {
-  height: 10rem;
-  width: 10rem;
-  flex: 1 1 20rem;
-}
-
-.box1 {
-  background-color: yellow;
-}
-
-.box2 {
-  background-color: purple;
-}
-
-.box3 {
-  background-color: orange;
-}
-
-.box4 {
-  background-color: hotpink;
-}
-
-.box5 {
-  background-color: royalblue;
-}
-
-.box6 {
-  background-color: olivedrab;
 }
