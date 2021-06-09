@@ -112,7 +112,7 @@ button:hover {
   border-radius: 25%;
 }
 
-.sneaker span {
+.sneakerText {
   margin: 1rem;
   font-family: "Calistoga", serif;
   text-shadow: goldenrod -0.2rem 0.2rem;

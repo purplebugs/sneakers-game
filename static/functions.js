@@ -71,11 +71,17 @@ const renderSneakers_A_and_B_forPriceComparison = (sneakers) => {
   const sneakerA_TextElement = document.createElement("span");
   const sneakerB_TextElement = document.createElement("span");
 
+  sneakerA_TextElement.classList.add("sneakerText");
+  sneakerB_TextElement.classList.add("sneakerText");
+
+  sneakerA_TextElement.setAttribute("id", "sneakerAText");
+  sneakerB_TextElement.setAttribute("id", "sneakerBText");
+
   sneakerA_El.appendChild(sneakerA_TextElement);
   sneakerB_El.appendChild(sneakerB_TextElement);
 
-  sneakerA_TextElement.innerText = `${sneakerA.name} - $${sneakerA.retailPrice}`;
-  sneakerB_TextElement.innerText = `${sneakerB.name} - $${sneakerB.retailPrice}`;
+  sneakerA_TextElement.innerText = `${sneakerA.name}`;
+  sneakerB_TextElement.innerText = `${sneakerB.name}`;
 
   // render image
   const sneakerA_Img = document.createElement("img");
@@ -102,9 +108,11 @@ const selectSneaker = (selected) => {
 
     // TODO take into account equal
 
+    // update sneaker class to render colour outline indicating highest and lowest prices
     const highestShoeElement = document.querySelectorAll(
       `[data-id="${response.highest.id}"]`
     );
+
     highestShoeElement[0].classList.add("correct");
 
     const lowestShoeElement = document.querySelectorAll(
@@ -112,6 +120,14 @@ const selectSneaker = (selected) => {
     );
 
     lowestShoeElement[0].classList.add("incorrect");
+
+    // render price
+    // TODO render price separately from sneaker name in a different colour or something
+    const sneakerAText = document.getElementById("sneakerAText");
+    sneakerAText.innerText = `${tracker.sneakers[0].name} - $${tracker.sneakers[0].retailPrice}`;
+
+    const sneakerBText = document.getElementById("sneakerBText");
+    sneakerBText.innerText = `${tracker.sneakers[1].name} - $${tracker.sneakers[1].retailPrice}`;
 
     // Uncomment to automatically get another sneaker after guessing
     //setTimeout(getAnotherSneaker, 3000);
@@ -132,12 +148,17 @@ const getAnotherSneaker = () => {
 
     getRandomSneakers(2).then((sneakers) => {
       console.log("sneakers", sneakers);
+
+      // keep track of latest sneakers
+      tracker.sneakers = sneakers;
+      console.log("[APP LOG] sneakers", sneakers);
+
       // keep track of current rendered sneaker ids
       tracker.currentSneakerA_Id = sneakers[0].id;
       tracker.currentSneakerB_Id = sneakers[1].id;
       renderSneakers_A_and_B_forPriceComparison(sneakers);
       // Uncomment for debugging when developing
-      //renderKeepingTrack(tracker);
+      // renderKeepingTrack(tracker);
     });
   }
 };
