@@ -57,10 +57,14 @@ nav ul {
   flex-direction: column;
   min-height: 10vh;
   align-items: center;
+  flex: 1 1 10rem;
 }
 
 .controls h2 {
   padding: 1rem;
+  color: white;
+  text-shadow: goldenrod -0.2rem 0.2rem;
+  font-size: 4rem;
 }
 
 button {
@@ -74,6 +78,7 @@ button {
   font-size: 1.4rem;
   padding: 0.8rem;
   transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 2rem;
 }
 
 button:hover {
