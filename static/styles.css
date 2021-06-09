@@ -6,14 +6,24 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: "Calistoga";
+  src: url("./fonts/Calistoga-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Caladea";
+  src: url("./fonts/Caladea-Regular.ttf");
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  font-family: "Caladea", serif;
   background: lightblue;
   color: #fafafa;
-  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   min-height: 100vh;
 }
@@ -54,27 +64,27 @@ nav ul {
 }
 
 button {
-  background: #7044a0;
+  background: darkgoldenrod;
   padding: 1rem 2rem;
   border: none;
-  border-bottom: 2px solid #603a88;
+  border-bottom: 2px solid gold;
   cursor: pointer;
   color: white;
+  font-family: "Caladea", serif;
   font-size: 1.4rem;
-  font-weight: 300;
   padding: 0.8rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
-  background: #5f3a87;
+  background: chocolate;
 }
 
 /* Sneakers */
 
 #sneakersForPriceComparison {
   min-height: 60vh;
-  border: 3px solid black;
+  border: none;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -99,7 +109,7 @@ button:hover {
 
 .sneaker span {
   margin: 1rem;
-  font-family: "Calistoga", cursive;
+  font-family: "Calistoga", serif;
   font-size: 3.5rem;
   text-align: center;
   position: absolute;

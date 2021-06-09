@@ -22,9 +22,10 @@ let renderPage = () => {
       renderSneakers_A_and_B_forPriceComparison(sneakers);
       return sneakers;
     })
-    .then(() => {
-      renderKeepingTrack(tracker);
-    })
+    // Uncomment for debugging when developing
+    // .then(() => {
+    //   renderKeepingTrack(tracker);
+    // })
     .catch((err) => {
       console.error("Error rendering page", err);
     });

@@ -113,7 +113,8 @@ const selectSneaker = (selected) => {
 
     lowestShoeElement[0].classList.add("incorrect");
 
-    setTimeout(getAnotherSneaker, 3000);
+    // Uncomment to automatically get another sneaker after guessing
+    //setTimeout(getAnotherSneaker, 3000);
   });
 };
 
@@ -135,7 +136,8 @@ const getAnotherSneaker = () => {
       tracker.currentSneakerA_Id = sneakers[0].id;
       tracker.currentSneakerB_Id = sneakers[1].id;
       renderSneakers_A_and_B_forPriceComparison(sneakers);
-      renderKeepingTrack(tracker);
+      // Uncomment for debugging when developing
+      //renderKeepingTrack(tracker);
     });
   }
 };
