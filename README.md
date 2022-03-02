@@ -8,12 +8,6 @@ Personal exercise to make small game around sneakers data from The Sneaker Datab
 
 2. Install the app: `npm install`
 
-## First time before starting app 🤖
-
-If this is the first time using the app, populate data by running:
-
-`npm run load-data`
-
 ## Start app 🚀
 
 1. Start the app: `npm start`
@@ -23,3 +17,8 @@ If this is the first time using the app, populate data by running:
 ## Run tests ✅
 
 `npm test`
+
+## Notes on the data 🤖
+
+- Using sample file from API [data/sneakersFromDatabase.json](data/sneakersFromDatabase.json)
+- Previously when this account had an active license, if first time using the app, data was populated by running `npm run load-data`
